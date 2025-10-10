@@ -1,6 +1,5 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.api.dto;
 
-import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import com.internvision.RESTfulAPIDevelopment.user.domain.UserRoleEnum;
 
 import java.time.LocalDate;

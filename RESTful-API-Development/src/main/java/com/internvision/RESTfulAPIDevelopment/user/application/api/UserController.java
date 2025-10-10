@@ -16,7 +16,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 public class UserController implements UserApi {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Override
     public ResponseEntity<Object> createUser(CreateUserDTO dto) {

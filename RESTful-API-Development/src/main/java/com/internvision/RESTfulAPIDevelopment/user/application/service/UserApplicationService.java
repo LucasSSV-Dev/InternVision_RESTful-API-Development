@@ -1,9 +1,8 @@
-package com.internvision.RESTfulAPIDevelopment.user.infra;
+package com.internvision.RESTfulAPIDevelopment.user.application.service;
 
 import com.internvision.RESTfulAPIDevelopment.tools.mapper.UserMapper;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
-import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
