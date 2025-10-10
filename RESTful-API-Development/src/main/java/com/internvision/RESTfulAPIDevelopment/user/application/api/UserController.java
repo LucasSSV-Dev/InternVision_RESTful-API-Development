@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @Log4j2
@@ -19,7 +20,7 @@ public class UserController implements UserApi {
     private final UserService userService;
 
     @Override
-    public ResponseEntity<Object> createUser(CreateUserDTO dto) {
+    public ResponseEntity<Object> postCreateUser(CreateUserDTO dto) {
         log.info("[starts] UserController -> createUser()");
         User user = userService.createUser(dto);
 
@@ -31,6 +32,14 @@ public class UserController implements UserApi {
 
         log.info("[ends] UserController -> createUser()");
         return ResponseEntity.created(location).build();
+    }
+
+    @Override
+    public ResponseEntity<Object> getAllUsers() {
+        log.info("[starts] UserController -> getAllUsers()");
+        List<User> userList = userService.getAllUsers();
+        log.info("[ends] UserController -> getAllUsers()");
+        return ResponseEntity.ok().body(userList);
     }
 
 
