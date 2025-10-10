@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -36,4 +37,14 @@ public class UserApplicationService implements UserService {
         return userList;
     }
 
+    @Override
+    public User getUserById(String id){
+        log.info("[starts] UserApplicationService -> getUserById()");
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
+            throw new RuntimeException("User not found");
+        }
+        log.info("[ends] UserApplicationService -> getUserById()");
+        return user.get();
+    }
 }

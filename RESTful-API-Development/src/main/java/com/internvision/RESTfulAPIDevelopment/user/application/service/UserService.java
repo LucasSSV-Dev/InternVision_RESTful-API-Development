@@ -12,4 +12,6 @@ public interface UserService {
     User createUser(CreateUserDTO dto);
 
     List<User> getAllUsers();
+
+    User getUserById(String id);
 }

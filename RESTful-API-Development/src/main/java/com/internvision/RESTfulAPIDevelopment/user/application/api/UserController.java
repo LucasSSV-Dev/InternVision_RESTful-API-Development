@@ -42,7 +42,13 @@ public class UserController implements UserApi {
         return ResponseEntity.ok().body(userList);
     }
 
-
+    @Override
+    public ResponseEntity<Object> getUserById(String id){
+        log.info("[starts] UserController -> getUserById()");
+        User user = userService.getUserById(id);
+        log.info("[ends] UserController -> getUserById()");
+        return ResponseEntity.ok().body(user);
+    }
 
 
 
