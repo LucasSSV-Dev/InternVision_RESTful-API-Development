@@ -4,6 +4,7 @@ import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUse
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
+import com.internvision.RESTfulAPIDevelopment.user.infra.mappers.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
