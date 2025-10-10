@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.tools.mapper;
+package com.internvision.RESTfulAPIDevelopment.user.infra;
 
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
