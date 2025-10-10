@@ -1,11 +1,17 @@
 package com.internvision.RESTfulAPIDevelopment.user.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Document(collection = "users")
 public class User {
 
