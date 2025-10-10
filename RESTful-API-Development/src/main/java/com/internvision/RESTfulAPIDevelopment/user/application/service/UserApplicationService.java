@@ -18,8 +18,10 @@ public class UserApplicationService implements UserService {
 
     @Override
     public User createUser(CreateUserDTO dto){
+        log.info("[starts] UserApplicationService -> createUser()");
         User user = UserMapper.toUser(dto);
         userRepository.save(user);
+        log.info("[ends] UserApplicationService -> createUser()");
         return user;
     }
 

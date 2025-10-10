@@ -20,6 +20,7 @@ public class UserController implements UserApi {
 
     @Override
     public ResponseEntity<Object> createUser(CreateUserDTO dto) {
+        log.info("[starts] UserController -> createUser()");
         User user = userService.createUser(dto);
 
         URI location = ServletUriComponentsBuilder
@@ -28,6 +29,7 @@ public class UserController implements UserApi {
                 .buildAndExpand(user.getId())
                 .toUri();
 
+        log.info("[ends] UserController -> createUser()");
         return ResponseEntity.created(location).build();
     }
 
