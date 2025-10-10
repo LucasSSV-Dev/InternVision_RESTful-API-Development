@@ -4,5 +4,6 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://root:1234@localhost:27017/meuBanco?authSource=admin
-    
+      host: localhost
+      port: 27017
+      database: internvision_db
