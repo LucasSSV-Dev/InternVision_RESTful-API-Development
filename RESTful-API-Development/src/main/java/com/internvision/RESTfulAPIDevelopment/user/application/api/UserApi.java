@@ -15,5 +15,5 @@ public interface UserApi {
     ResponseEntity<Object> getAllUsers();
 
     @GetMapping("/{id}")
-    ResponseEntity<Object> getUserById(@RequestParam @Valid String id);
+    ResponseEntity<Object> getUserById(@PathVariable @Valid String id);
 }
