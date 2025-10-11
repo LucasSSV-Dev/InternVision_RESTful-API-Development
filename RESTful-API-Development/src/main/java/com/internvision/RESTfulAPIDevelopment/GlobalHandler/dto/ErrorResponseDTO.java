@@ -11,8 +11,8 @@ public record ErrorResponseDTO(int status, String message, List<FieldMessage> fi
         return new ErrorResponseDTO(HttpStatus.BAD_REQUEST.value(), message, List.of());
     }
 
-    public static ErrorResponseDTO conflict(String message){
-        return new ErrorResponseDTO(HttpStatus.CONFLICT.value(), message, List.of());
+    public static ErrorResponseDTO userConflict(){
+        return new ErrorResponseDTO(HttpStatus.CONFLICT.value(), "This User already exists", List.of());
     }
 
 
