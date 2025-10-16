@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.api;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class UserController implements UserApi {
     private final UserService userService;
 
     @Override
-    public ResponseEntity<Object> postCreateUser(CreateUserDTO dto) {
+    public ResponseEntity<Object> postCreateUser(CreateOrUpdateUserDTO dto) {
         log.info("[starts] UserController -> createUser()");
         User user = userService.createUser(dto);
 
@@ -51,6 +51,13 @@ public class UserController implements UserApi {
     }
 
 
+    @Override
+    public ResponseEntity<Object> putUpdateUser(String id, CreateOrUpdateUserDTO userUpdateRequest) {
+        log.info("[starts] UserController -> putUpdateUser()");
+        userService.updateUser(id, userUpdateRequest);
+        log.info("[ends] UserController -> putUpdateUser()");
+        return ResponseEntity.noContent().build();
+    }
 
 
 

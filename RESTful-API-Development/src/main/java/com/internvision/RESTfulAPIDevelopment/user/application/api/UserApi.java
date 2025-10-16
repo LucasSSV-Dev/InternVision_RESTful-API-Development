@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.api;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.*;
 public interface UserApi {
 
     @PostMapping
-    ResponseEntity<Object> postCreateUser(@RequestBody @Valid CreateUserDTO body);
+    ResponseEntity<Object> postCreateUser(@RequestBody @Valid CreateOrUpdateUserDTO body);
 
     @GetMapping
     ResponseEntity<Object> getAllUsers();
 
     @GetMapping("/{id}")
     ResponseEntity<Object> getUserById(@PathVariable @Valid String id);
+
+    @PutMapping("/{id}")
+    ResponseEntity<Object> putUpdateUser(@PathVariable String id, @RequestBody @Valid CreateOrUpdateUserDTO body);
+
 }

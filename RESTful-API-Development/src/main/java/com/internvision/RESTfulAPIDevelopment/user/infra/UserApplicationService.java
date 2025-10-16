@@ -1,7 +1,7 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra;
 
 import com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception.UserNotFoundException;
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
@@ -22,7 +22,7 @@ public class UserApplicationService implements UserService {
     private final UserMapper UserMapper;
 
     @Override
-    public User createUser(CreateUserDTO dto){
+    public User createUser(CreateOrUpdateUserDTO dto){
         log.info("[starts] UserApplicationService -> createUser()");
         User user = UserMapper.toUser(dto);
         userRepository.save(user);
@@ -48,4 +48,20 @@ public class UserApplicationService implements UserService {
         log.info("[ends] UserApplicationService -> getUserById()");
         return user.get();
     }
+
+    @Override
+    public void updateUser(String id, CreateOrUpdateUserDTO userUpdateRequest){
+        log.info("[starts] UserApplicationService -> updateUser()");
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isEmpty()) {
+            throw new UserNotFoundException("User not found");
+        }
+
+        User userFound = optionalUser.get();
+        User user = UserMapper.updateUser(userFound, userUpdateRequest);
+
+        userRepository.save(user);
+        log.info("[ends] UserApplicationService -> updateUser()");
+    }
+
 }

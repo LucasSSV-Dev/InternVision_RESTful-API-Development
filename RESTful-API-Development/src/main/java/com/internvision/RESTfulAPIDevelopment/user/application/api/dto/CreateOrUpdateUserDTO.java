@@ -8,7 +8,9 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-public record CreateUserDTO(
+public record CreateOrUpdateUserDTO(
+        String id,
+
         @NotBlank(message = "Campo Obrigatório!")
         @Size(min = 2, max = 100, message = "Limite de caracteres ultrapassado. Max: 100.")
         String name,
@@ -16,15 +18,15 @@ public record CreateUserDTO(
         @NotNull(message = "Campo Obrigatório!")
         LocalDate birthDate,
 
-        @Email(message = "Insira um email válido")
-        @NotBlank
+        @Email(message = "Insira um email válido.")
+        @NotBlank(message = "Insira um email válido.")
         String email,
 
-        @NotBlank
-        @Size(min = 8, max = 64, message = "Limite de caracteres ultrapassado. Max: 64.")
+        @NotBlank(message = "Digite uma senha!")
+        @Size(min = 8, max = 64, message = "A senha precisa ter entre 8 e 64 caracteres.")
         String password,
 
-        @NotNull
+        @NotNull(message = "Função inválida!")
         UserRoleEnum role
 ) {
 }
