@@ -1,5 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra;
 
+import com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception.UserNotFoundException;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
@@ -42,7 +43,7 @@ public class UserApplicationService implements UserService {
         log.info("[starts] UserApplicationService -> getUserById()");
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty()) {
-            throw new RuntimeException("User not found");
+            throw new UserNotFoundException("User not found");
         }
         log.info("[ends] UserApplicationService -> getUserById()");
         return user.get();

@@ -47,3 +47,8 @@
 /mongo-data/journal/WiredTigerPreplog.0000000001
 /mongo-data/WiredTiger
 /mongo-data/index-5-12409899534994978753.wt
+/mongo-data/collection-0-5895998562764737658.wt
+/mongo-data/index-1-5895998562764737658.wt
+/mongo-data/diagnostic.data/metrics.2025-10-13T18-11-18Z-00000
+/mongo-data/diagnostic.data/metrics.2025-10-16T14-04-16Z-00000
+/mongo-data/journal/WiredTigerLog.0000000003
