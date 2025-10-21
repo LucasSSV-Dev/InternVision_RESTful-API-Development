@@ -11,11 +11,8 @@ public interface UserMapper {
 
     User toUser(CreateOrUpdateUserDTO dto);
 
-
     @AfterMapping
-    default void setDefaultActive(@MappingTarget User entity) {
+    default void setActiveTrue(@MappingTarget User entity) {
         entity.setActive(true);
     }
-
-    User updateUser(User user, CreateOrUpdateUserDTO userUpdateRequest);
 }
