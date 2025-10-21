@@ -1,5 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.service;
 
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import org.springframework.stereotype.Service;
@@ -18,4 +19,6 @@ public interface UserService {
     void updateUser(String id, CreateOrUpdateUserDTO userUpdateRequest);
 
     void deleteUser(String id);
+
+    void changePassword(String id, ChangePasswordRequestDTO passwordRequestDTO);
 }

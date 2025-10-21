@@ -1,6 +1,7 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra;
 
 import com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
@@ -68,7 +69,27 @@ public class UserApplicationService implements UserService {
     @Override
     public void deleteUser(String id){
         log.info("[starts] UserApplicationService -> deleteUser()");
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isEmpty()) {
+            throw new UserNotFoundException("User not found");
+        }
         userRepository.deleteById(id);
         log.info("[ends] UserApplicationService -> deleteUser()");
     }
+
+    @Override
+    public void changePassword(String id, ChangePasswordRequestDTO passwordRequestDTO){
+        log.info("[starts] UserApplicationService -> changePassword()");
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isEmpty()) {
+            throw new UserNotFoundException("User not found");
+        } else if (!optionalUser.get().getPassword().equals(passwordRequestDTO.oldPassword())) {
+            throw new UserNotFoundException("Old password is incorrect");
+        }
+        User user = optionalUser.get();
+        user.setPassword(passwordRequestDTO.newPassword());
+        userRepository.save(user);
+        log.info("[ends] UserApplicationService -> changePassword()");
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.api;
 
+import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
@@ -67,7 +68,13 @@ public class UserController implements UserApi {
         return ResponseEntity.noContent().build();
     }
 
-
+    @Override
+    public ResponseEntity<Object> patchUpdateUser(String id, ChangePasswordRequestDTO passwordRequestDTO) {
+        log.info("[starts] UserController -> patchUpdateUser()");
+        userService.changePassword(id, passwordRequestDTO);
+        log.info("[ends] UserController -> patchUpdateUser()");
+        return ResponseEntity.accepted().body("Password changed!");
+    }
 
 
 
