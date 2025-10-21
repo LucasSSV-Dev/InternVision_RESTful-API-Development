@@ -53,15 +53,22 @@ public class UserApplicationService implements UserService {
     public void updateUser(String id, CreateOrUpdateUserDTO userUpdateRequest){
         log.info("[starts] UserApplicationService -> updateUser()");
         Optional<User> optionalUser = userRepository.findById(id);
+
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException("User not found");
         }
 
-        User userFound = optionalUser.get();
-        User user = UserMapper.updateUser(userFound, userUpdateRequest);
+        User user = optionalUser.get();
+        User updatedUser = user.updateUser(id, userUpdateRequest);
 
-        userRepository.save(user);
+        userRepository.save(updatedUser);
         log.info("[ends] UserApplicationService -> updateUser()");
     }
 
+    @Override
+    public void deleteUser(String id){
+        log.info("[starts] UserApplicationService -> deleteUser()");
+        userRepository.deleteById(id);
+        log.info("[ends] UserApplicationService -> deleteUser()");
+    }
 }

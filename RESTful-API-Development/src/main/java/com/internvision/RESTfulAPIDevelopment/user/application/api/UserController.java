@@ -59,6 +59,14 @@ public class UserController implements UserApi {
         return ResponseEntity.noContent().build();
     }
 
+    @Override
+    public ResponseEntity<Void> deleteUser(String id) {
+        log.info("[starts] UserController -> deleteUser()");
+        userService.deleteUser(id);
+        log.info("[ends] UserController -> deleteUser()");
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 

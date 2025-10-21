@@ -20,4 +20,6 @@ public interface UserApi {
     @PutMapping("/{id}")
     ResponseEntity<Object> putUpdateUser(@PathVariable String id, @RequestBody @Valid CreateOrUpdateUserDTO body);
 
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> deleteUser(@PathVariable @Valid String id);
 }
