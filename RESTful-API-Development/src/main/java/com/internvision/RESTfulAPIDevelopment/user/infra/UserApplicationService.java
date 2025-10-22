@@ -7,6 +7,7 @@ import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRe
 import com.internvision.RESTfulAPIDevelopment.user.application.service.UserService;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import com.internvision.RESTfulAPIDevelopment.user.infra.mappers.UserMapper;
+import com.internvision.RESTfulAPIDevelopment.user.infra.validator.ValidateUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,14 @@ public class UserApplicationService implements UserService {
 
     private final UserRepository userRepository;
     private final UserMapper UserMapper;
+    private final ValidateUser validateUser;
 
     @Override
     public User createUser(CreateOrUpdateUserDTO dto){
         log.info("[starts] UserApplicationService -> createUser()");
         User user = UserMapper.toUser(dto);
+        validateUser.VerifyEmail(user);
+
         userRepository.save(user);
         log.info("[ends] UserApplicationService -> createUser()");
         return user;
