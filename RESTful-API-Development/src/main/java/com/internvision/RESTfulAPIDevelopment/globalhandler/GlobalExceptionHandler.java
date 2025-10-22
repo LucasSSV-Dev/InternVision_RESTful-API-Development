@@ -2,6 +2,7 @@ package com.internvision.RESTfulAPIDevelopment.globalhandler;
 
 import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.ErrorResponseDTO;
 import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.FieldMessage;
+import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.EmailAlreadyUsedException;
 import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -37,6 +38,14 @@ public class GlobalExceptionHandler {
         );
     }
 
+    @ExceptionHandler(EmailAlreadyUsedException.class)
+    public ErrorResponseDTO handleEmailAlreadyUsedException() {
+        return new ErrorResponseDTO(HttpStatus.CONFLICT.value(),
+                "This email is already used.",
+                List.of()
+        );
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ErrorResponseDTO handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         //Selecionando apenas o que precisamos da Exception
@@ -45,6 +54,13 @@ public class GlobalExceptionHandler {
         List<FieldMessage> fieldMessageList = fieldErrors.stream()
                 .map(fieldError -> new FieldMessage(fieldError.getField(), fieldError.getDefaultMessage()))
                 .toList();
-        return new ErrorResponseDTO(HttpStatus.BAD_REQUEST.value(), "Validation error", fieldMessageList);
+        return new ErrorResponseDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                "Validation error",
+                fieldMessageList
+        );
     }
+
+
+
 }
