@@ -1,9 +1,13 @@
 server:
   port: 8080
-
+d
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: internvision_db
+      uri: mongodb://localhost:27017/internvision_db
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
