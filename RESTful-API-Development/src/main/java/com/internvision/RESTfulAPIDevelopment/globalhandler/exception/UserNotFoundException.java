@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception;
+package com.internvision.RESTfulAPIDevelopment.globalhandler.exception;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String message) {

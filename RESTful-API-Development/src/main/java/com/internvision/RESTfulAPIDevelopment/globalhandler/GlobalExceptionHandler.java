@@ -1,8 +1,8 @@
-package com.internvision.RESTfulAPIDevelopment.GlobalHandler;
+package com.internvision.RESTfulAPIDevelopment.globalhandler;
 
-import com.internvision.RESTfulAPIDevelopment.GlobalHandler.dto.ErrorResponseDTO;
-import com.internvision.RESTfulAPIDevelopment.GlobalHandler.dto.FieldMessage;
-import com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.ErrorResponseDTO;
+import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.FieldMessage;
+import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

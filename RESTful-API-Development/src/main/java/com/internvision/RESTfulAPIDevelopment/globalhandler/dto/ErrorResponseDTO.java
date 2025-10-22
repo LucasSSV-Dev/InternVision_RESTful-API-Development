@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.GlobalHandler.dto;
+package com.internvision.RESTfulAPIDevelopment.globalhandler.dto;
 
 import org.springframework.http.HttpStatus;
 

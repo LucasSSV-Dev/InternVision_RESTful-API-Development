@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra;
 
-import com.internvision.RESTfulAPIDevelopment.GlobalHandler.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.UserNotFoundException;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
