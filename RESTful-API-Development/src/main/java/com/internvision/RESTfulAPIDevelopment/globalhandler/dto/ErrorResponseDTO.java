@@ -12,22 +12,9 @@ public record ErrorResponseDTO(int status, String message, List<FieldMessage> fi
     }
 
     public static ErrorResponseDTO userConflict(){
-        return new ErrorResponseDTO(HttpStatus.CONFLICT.value(), "This User already exists", List.of());
+        return new ErrorResponseDTO(HttpStatus.CONFLICT.value(), "This email is already used.", List.of());
     }
 
 
 
-    @Override
-    public String toString() {
-        return "ErrorResponse {\n" +
-                "  status: " +
-                status +
-                ",\n" +
-                "  message: " +
-                "'" + message + "'" +
-                ",\n" +
-                "  erros: " +
-                fieldErrors +
-                "\n}";
-    }
 }
