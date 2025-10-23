@@ -27,7 +27,7 @@ public class User {
     private UserRoleEnum role;
 
     public User updateUser(String id, CreateOrUpdateUserDTO dto) {
-        this.id = dto.id();
+        this.id = id;
         this.name = dto.name();
         this.birthDate = dto.birthDate();
         this.email = dto.email();

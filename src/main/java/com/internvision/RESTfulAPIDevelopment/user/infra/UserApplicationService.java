@@ -28,7 +28,7 @@ public class UserApplicationService implements UserService {
     public User createUser(CreateOrUpdateUserDTO dto){
         log.info("[starts] UserApplicationService -> createUser()");
         User user = UserMapper.toUser(dto);
-        validateUser.VerifyEmail(user);
+        validateUser.verifyEmail(user);
 
         userRepository.save(user);
         log.info("[ends] UserApplicationService -> createUser()");

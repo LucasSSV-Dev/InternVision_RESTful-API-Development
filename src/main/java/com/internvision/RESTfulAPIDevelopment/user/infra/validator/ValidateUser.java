@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ValidateUser {
     private final UserRepository userRepository;
 
-    public void VerifyEmail(User user) {
+    public void verifyEmail(User user) {
         if (userRepository.findByEmail(user.getEmail()) != null) {
             throw new EmailAlreadyUsedException("Email already used!");
         }
