@@ -4,11 +4,13 @@ import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrU
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
+    @Mapping(target = "active", ignore = true)
     User toUser(CreateOrUpdateUserDTO dto);
 
     @AfterMapping
