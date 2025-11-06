@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra.validator;
 
-import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.EmailAlreadyUsedException;
+import com.internvision.RESTfulAPIDevelopment.common.exception.EmailAlreadyUsedException;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import lombok.RequiredArgsConstructor;

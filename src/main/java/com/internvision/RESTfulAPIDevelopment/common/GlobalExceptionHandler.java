@@ -1,9 +1,9 @@
-package com.internvision.RESTfulAPIDevelopment.globalhandler;
+package com.internvision.RESTfulAPIDevelopment.common;
 
-import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.ErrorResponseDTO;
-import com.internvision.RESTfulAPIDevelopment.globalhandler.dto.FieldMessage;
-import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.EmailAlreadyUsedException;
-import com.internvision.RESTfulAPIDevelopment.globalhandler.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.common.dto.ErrorResponseDTO;
+import com.internvision.RESTfulAPIDevelopment.common.dto.FieldMessage;
+import com.internvision.RESTfulAPIDevelopment.common.exception.EmailAlreadyUsedException;
+import com.internvision.RESTfulAPIDevelopment.common.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

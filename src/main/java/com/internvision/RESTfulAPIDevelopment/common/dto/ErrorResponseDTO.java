@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.globalhandler.dto;
+package com.internvision.RESTfulAPIDevelopment.common.dto;
 
 import java.util.List;
 
