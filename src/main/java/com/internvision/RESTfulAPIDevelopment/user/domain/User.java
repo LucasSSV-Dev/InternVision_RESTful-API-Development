@@ -25,15 +25,13 @@ public class User {
     private boolean active;
     private UserRoleEnum role;
 
-    public User updateUser(String id, CreateOrUpdateUserDTO dto) {
-        this.id = id;
+    public User updateUser(CreateOrUpdateUserDTO dto) {
         this.name = dto.name();
         this.birthDate = dto.birthDate();
         this.email = dto.email();
         this.password = dto.password();
         this.active = true;
         this.role = dto.role();
-
         return this;
     }
 }

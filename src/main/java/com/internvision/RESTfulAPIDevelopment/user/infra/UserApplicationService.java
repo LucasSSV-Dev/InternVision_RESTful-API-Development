@@ -64,7 +64,7 @@ public class UserApplicationService implements UserService {
         }
 
         User user = optionalUser.get();
-        User updatedUser = user.updateUser(id, userUpdateRequest);
+        User updatedUser = user.updateUser(userUpdateRequest);
 
         userRepository.save(updatedUser);
         log.info("[ends] UserApplicationService -> updateUser()");
