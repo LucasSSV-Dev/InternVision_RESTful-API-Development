@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.domain;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.CreateOrUpdateUserDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

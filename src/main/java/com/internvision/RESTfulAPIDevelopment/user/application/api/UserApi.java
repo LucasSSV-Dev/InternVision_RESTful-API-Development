@@ -1,7 +1,7 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.api;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.ChangePasswordRequestDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.CreateOrUpdateUserDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.user.application.api.dto;
+package com.internvision.RESTfulAPIDevelopment.user.infra.dto;
 
 import com.internvision.RESTfulAPIDevelopment.user.domain.UserRoleEnum;
 import jakarta.validation.constraints.Email;

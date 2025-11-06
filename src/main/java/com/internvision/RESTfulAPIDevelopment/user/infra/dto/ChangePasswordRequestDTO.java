@@ -1,4 +1,4 @@
-package com.internvision.RESTfulAPIDevelopment.user.application.api.dto;
+package com.internvision.RESTfulAPIDevelopment.user.infra.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,7 +1,7 @@
 package com.internvision.RESTfulAPIDevelopment.user.application.service;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.ChangePasswordRequestDTO;
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.ChangePasswordRequestDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import org.springframework.stereotype.Service;
 

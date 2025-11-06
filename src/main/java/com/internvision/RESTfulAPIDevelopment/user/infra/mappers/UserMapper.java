@@ -1,6 +1,6 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra.mappers;
 
-import com.internvision.RESTfulAPIDevelopment.user.application.api.dto.CreateOrUpdateUserDTO;
+import com.internvision.RESTfulAPIDevelopment.user.infra.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.domain.User;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
