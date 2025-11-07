@@ -1,6 +1,7 @@
 package com.internvision.RESTfulAPIDevelopment.user.infra;
 
 import com.internvision.RESTfulAPIDevelopment.common.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.common.exception.WrongPasswordException;
 import com.internvision.RESTfulAPIDevelopment.user.infra.dto.ChangePasswordRequestDTO;
 import com.internvision.RESTfulAPIDevelopment.user.infra.dto.CreateOrUpdateUserDTO;
 import com.internvision.RESTfulAPIDevelopment.user.application.repository.UserRepository;
@@ -88,7 +89,7 @@ public class UserApplicationService implements UserService {
         if (optionalUser.isEmpty()) {
             throw new UserNotFoundException("User not found");
         } else if (!optionalUser.get().getPassword().equals(passwordRequestDTO.oldPassword())) {
-            throw new UserNotFoundException("Old password is incorrect");
+            throw new WrongPasswordException("Actual password is incorrect");
         }
         User user = optionalUser.get();
         user.setPassword(passwordRequestDTO.newPassword());

@@ -4,6 +4,7 @@ import com.internvision.RESTfulAPIDevelopment.common.dto.ErrorResponseDTO;
 import com.internvision.RESTfulAPIDevelopment.common.dto.FieldMessage;
 import com.internvision.RESTfulAPIDevelopment.common.exception.EmailAlreadyUsedException;
 import com.internvision.RESTfulAPIDevelopment.common.exception.UserNotFoundException;
+import com.internvision.RESTfulAPIDevelopment.common.exception.WrongPasswordException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -28,12 +29,22 @@ public class GlobalExceptionHandler {
         );
     }
 
+    @ExceptionHandler(WrongPasswordException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponseDTO handleWrongPassword(WrongPasswordException exception) {
+        return new ErrorResponseDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                exception.getMessage(),
+                List.of()
+        );
+    }
+
     @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponseDTO handleNotFound() {
+    public ErrorResponseDTO handleNotFound(UserNotFoundException exception) {
         return new ErrorResponseDTO(
                 HttpStatus.NOT_FOUND.value(),
-                "The requested resource was not found.",
+                exception.getMessage(),
                 List.of()
         );
     }
